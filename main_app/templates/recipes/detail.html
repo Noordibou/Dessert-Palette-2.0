@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container mt-4">
-    <h1 class="text-center display-4 mb-4">Recipe Details</h1>
+<div class="container mt-4" >
+    <h1 class="text-center display-4 mb-4 " style="font-family: Lumanosimo, cursive;">Recipe Details</h1>
 
     {% if photos %}
     <div class="text-center">
@@ -25,18 +25,18 @@
 
     <div class="card mt-3">
         <div class="card-header">
-            <span class="h4">{{ recipe.title }}</span>
+            <span class="h4" style="font-family: Lumanosimo, cursive;">{{ recipe.title }}</span>
         </div>
         <div class="card-body">
-            <p><b>Prep-time:</b> {{ recipe.preptime }} minutes</p>
-            <p><b>Cooking-time:</b> {{ recipe.cookingtime }} minutes</p>
-            <p><b>Total-time:</b> {{ recipe.totaltime }} minutes</p>
-            <p><b>Servings:</b> {{ recipe.yields }}</p>
+            <p><b style="font-family: Lumanosimo, cursive;">Prep-time:</b> {{ recipe.preptime }} minutes</p>
+            <p><b style="font-family: Lumanosimo, cursive;">Cooking-time:</b> {{ recipe.cookingtime }} minutes</p>
+            <p><b style="font-family: Lumanosimo, cursive;">Total-time:</b> {{ recipe.totaltime }} minutes</p>
+            <p><b style="font-family: Lumanosimo, cursive;">Servings:</b> {{ recipe.yields }}</p>
             <hr>
-            <p><b>Ingredients:</b></p>
+            <p><b style="font-family: Lumanosimo, cursive;">Ingredients:</b></p>
             <p>{{ recipe.ingredients | linebreaks }}</p>
             <hr>
-            <p><b>Instructions:</b></p>
+            <p><b style="font-family: Lumanosimo, cursive;">Instructions:</b></p>
             <p>{{ recipe.instructions | linebreaks }}</p>
         </div>
         <div class="card-footer">

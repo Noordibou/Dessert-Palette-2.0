@@ -85,6 +85,7 @@ DATABASES = {
         'NAME': 'pastryrecipes',
         'USER': 'noor',
         'PASSWORD': '9786',
+    
     }
 }
 

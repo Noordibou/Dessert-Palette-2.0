@@ -16,8 +16,12 @@ CAT = (
 )
 
 class Pastryrecipe(models.Model):
+    # category = models.CharField(
+    #   max_length=2,
+    #   choices=CAT,
+    #   default=CAT[0][0]
+    # )
     title = models.CharField(max_length=100)
-    
     preptime = models.IntegerField()
     cookingtime = models.IntegerField()
     totaltime = models.IntegerField()
