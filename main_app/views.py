@@ -23,7 +23,7 @@ def recipes_index(request):
     'pastryrecipes': pastryrecipes
   })
 
-def recipes_detail(request, recipe_id):
+def recipe_detail(request, recipe_id):
   recipe = Pastryrecipe.objects.get(id=recipe_id)
   photos = recipe.photo_set.all()
   # photos = Photo.objects.filter(recipe_id=recipe_id)
