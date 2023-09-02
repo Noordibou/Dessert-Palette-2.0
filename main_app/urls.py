@@ -15,6 +15,7 @@ urlpatterns = [
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
     path('search_recipe/', views.search_recipe, name='search'),
+    
 ]
 
 
