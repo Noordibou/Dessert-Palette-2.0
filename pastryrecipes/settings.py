@@ -15,14 +15,13 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ.get('SECRET_KEY')
-SECRET_KEY = 'django-insecure-r3d#=1%qh$#fec#9k=jkju77czu8qm_kupfi-&#fi-84ezmr96'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ["*"]
-# CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev/"]
+CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev/"]
 
 
 # Application definition
@@ -75,15 +74,12 @@ WSGI_APPLICATION = 'pastryrecipes.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': os.environ.get('DB_NAME'),
-        # 'USER': os.environ.get('DB_USER'),
-        # 'PASSWORD': os.environ.get('DB_PW'),
-        # 'HOST': os.environ.get('DB_HOST'),
-        # 'PORT': os.environ.get('DB_PORT', '5432'),
-        'NAME': 'pastryrecipes',
-        'USER': 'noor',
-        'PASSWORD': '9786',
-
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PW'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
+      
     }
 }
 
