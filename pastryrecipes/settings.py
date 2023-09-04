@@ -16,6 +16,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'django-insecure-r3d#=1%qh$#fec#9k=jkju77czu8qm_kupfi-&#fi-84ezmr96'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
@@ -79,9 +80,12 @@ DATABASES = {
         'PASSWORD': os.environ.get('DB_PW'),
         'HOST': os.environ.get('DB_HOST'),
         'PORT': os.environ.get('DB_PORT', '5432'),
+        # 'NAME': 'pastryrecipes',
+        # 'USER': 'noor',
+        # 'PASSWORD': '9786',
+
     }
 }
-
 
 
 # Password validation
