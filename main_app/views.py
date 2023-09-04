@@ -13,21 +13,17 @@ def home(request):
     return render(request, 'home.html', {
         'pastryrecipes': pastryrecipes
     })
+  
     
 def about(request):
     return render(request, 'about.html')
 
 
-# def recipes_index(request):
-#     pastryrecipes = Pastryrecipe.objects.all()
-#     return render(request, 'recipes/index.html', {
-#         'pastryrecipes': pastryrecipes
-#     })
+
 def recipes_index(request):
 
   recipes = Pastryrecipe.objects.all()
   
-  # Group recipes by category
   categories = OrderedDict()
   for recipe in recipes:
     category = recipe.category
@@ -43,7 +39,6 @@ def recipes_index(request):
 def recipes_detail(request, recipe_id):
     recipe = Pastryrecipe.objects.get(id=recipe_id)
     photos = recipe.photo_set.all()
-    # photos = Photo.objects.filter(recipe_id=recipe_id)
     return render(request, 'recipes/detail.html', {
         'recipe': recipe,
         'photos': photos,
