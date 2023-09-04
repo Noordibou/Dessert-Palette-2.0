@@ -1,45 +1,49 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
 {% block content %}
-  <h1 class="index-title text-center m-4" style="font-family: Lumanosimo, cursive;" >Recipes</h1>
-  <div class="container my-4">
-    <div class="row">
-        {% for recipe in pastryrecipes %}
-        <div class="col-md-4 col-sm-6">
-            <a href="{% url 'detail' recipe.id %}" class="text-decoration-none">
-                <div class="card mb-4">
-                    <div class="recipe-card" style="position: relative;">
-                        <img class="card-img-top"
-                            src="{% if recipe.photo_set.exists %}{{ recipe.photo_set.first.url }}{% else %}https://i.imgur.com/cHwo2Gz.jpg{% endif %}"
-                            alt="{{ recipe.title }}" style="height: 200px; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ recipe.title }}</h5>
-                        </div>
-                    </div>
-                </div>
-            </a>
+
+<h1 class="index-title text-center m-4" style="font-family: Lumanosimo, cursive;">All Recipes</h1>
+
+{% for category, recipes in categories.items %}
+
+<h4 class=" m-4" style="font-family: Lumanosimo, cursive; text-decoration-line: underline;">{{ category }}</h4>
+<div class="row">
+  {% for recipe in recipes %}
+  <div class="col-md-4 col-sm-6">
+    <a href="{% url 'detail' recipe.id %}" class="text-decoration-none">
+      <div class="card mb-4">
+        <img
+          src="{% if recipe.photo_set.exists %}{{ recipe.photo_set.first.url }}{% else %}https://i.imgur.com/cHwo2Gz.jpg{% endif %}"
+          alt="{{ recipe.title }}" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{ recipe.title }}</h5>
         </div>
-        {% endfor %}
-    </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
 </div>
+<hr>
 
+{% endfor %}
 <style>
-    .recipe-card {
-        overflow: hidden;
-        transition: box-shadow 0.3s ease-in-out;
-    }
+  .recipe-card {
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+  }
 
-    .recipe-card:hover {
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    }
+  .recipe-card:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
 
-    .card-body {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 10px;
-    }
+  .card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+  }
 </style>
+
 {% endblock %}

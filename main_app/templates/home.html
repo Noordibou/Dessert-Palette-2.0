@@ -4,9 +4,9 @@
 <!-- Hero Section -->
 <div class="container">
     <div class="row py-4">
-        <div class="col-sm">
+        <div class="col-sm py-4">
             <img src="https://png.pngtree.com/background/20230517/original/pngtree-large-display-of-pastries-on-display-and-shelves-picture-image_2641425.jpg"
-                alt="Main Image" class="img-fluid rounded" style="width: 100%;">
+                alt="Main Image" class="img-fluid rounded mt-4" style="width: 100%;">
         </div>
         <div class="col-md text-center">
             <h1 class="display-6 mt-4 " style="font-family: Lumanosimo, cursive;">Welcome to Pastry Palate</h1>
@@ -28,7 +28,7 @@
                             src="{% if recipe.photo_set.exists %}{{ recipe.photo_set.first.url }}{% else %}https://i.imgur.com/cHwo2Gz.jpg{% endif %}"
                             alt="{{ recipe.title }}" style="height: 200px; object-fit: cover;">
                         <div class="card-body">
-                            <h5 class="card-title text-center">{{ recipe.title }}</h5>
+                            <h5 class="card-title text-center" style="font-family: Lumanosimo, cursive;">{{ recipe.title }}</h5>
                         </div>
                     </div>
                 </div>

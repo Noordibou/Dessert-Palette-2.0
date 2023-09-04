@@ -5,6 +5,7 @@ import boto3
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Pastryrecipe, Photo
+from collections import OrderedDict
 
 
 def home(request):
@@ -17,11 +18,26 @@ def about(request):
     return render(request, 'about.html')
 
 
+# def recipes_index(request):
+#     pastryrecipes = Pastryrecipe.objects.all()
+#     return render(request, 'recipes/index.html', {
+#         'pastryrecipes': pastryrecipes
+#     })
 def recipes_index(request):
-    pastryrecipes = Pastryrecipe.objects.all()
-    return render(request, 'recipes/index.html', {
-        'pastryrecipes': pastryrecipes
-    })
+
+  recipes = Pastryrecipe.objects.all()
+  
+  # Group recipes by category
+  categories = OrderedDict()
+  for recipe in recipes:
+    category = recipe.category
+    if category not in categories:
+      categories[category] = []
+    categories[category].append(recipe)
+
+  return render(request, 'recipes/index.html', {
+    'categories': categories
+  })
 
 
 def recipes_detail(request, recipe_id):
@@ -86,7 +102,7 @@ def search_recipe(request):
     if request.method == 'POST':
         searched = request.POST.get('searched', '')
         recipes = Pastryrecipe.objects.filter(
-            Q(title__icontains=searched) | Q(instructions__icontains=searched))
+            Q(title__icontains=searched) | Q(instructions__icontains=searched) | Q(category__icontains=searched))
         return render(request, 'search_recipe.html', {'searched': searched, 'recipes': recipes})
     else:
         return render(request, 'search_recipe.html', {})
