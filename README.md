@@ -20,6 +20,7 @@ Django, PostgreSQL, Python, Bootstrap
 
 ## Begin Your Sweet Adventure:
 Visit Dessert Palette at:  https://long-breeze-6908.fly.dev/
+test user: test, pasword: trewq12345
 
 ## What's on the Horizon
 At Dessert Palette, we are dedicated to elevating your dessert experience. Here's a sneak peek at some exciting features coming your way:
